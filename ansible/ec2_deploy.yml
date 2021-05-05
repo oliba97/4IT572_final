@@ -7,8 +7,8 @@
       ec2_instance_info:
         region: us-east-1
         aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY_ID') }}"
-        aws_secret_key: "{{ lookup('env', AWS_SECRET_ACCESS_KEY') }}"
-        security_token: "{{ lookup('env', AWS_SESSION_TOKEN') }}"
+        aws_secret_key: "{{ lookup('env', 'AWS_SECRET_ACCESS_KEY') }}"
+        security_token: "{{ lookup('env', 'AWS_SESSION_TOKEN') }}"
       register: ec2_stat
     - name: Launch EC2 instance
       ec2:
@@ -22,8 +22,8 @@
         count: 1
         group: homework
         aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY_ID') }}"
-        aws_secret_key: "{{ lookup('env', AWS_SECRET_ACCESS_KEY') }}"
-        security_token: "{{ lookup('env', AWS_SESSION_TOKEN') }}"
+        aws_secret_key: "{{ lookup('env', 'AWS_SECRET_ACCESS_KEY') }}"
+        security_token: "{{ lookup('env', 'AWS_SESSION_TOKEN') }}"
       register: ec2
 
     - name: Add instance host to group
@@ -75,8 +75,8 @@
        region: us-east-1
        state: absent
        aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY_ID') }}"
-       aws_secret_key: "{{ lookup('env', AWS_SECRET_ACCESS_KEY') }}"
-       security_token: "{{ lookup('env', AWS_SESSION_TOKEN') }}"
+       aws_secret_key: "{{ lookup('env', 'AWS_SECRET_ACCESS_KEY') }}"
+       security_token: "{{ lookup('env', 'AWS_SESSION_TOKEN') }}"
        instance_ids: '{{ item.instance_id }}'
      loop: "{{ ec2_stat.instances }}"
      loop_control:
