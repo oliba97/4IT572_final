@@ -22,7 +22,7 @@ jobs:
           root: .
           paths:
             - .
-    deploy:
+  deploy:
     docker: *ansible
     steps:
       - attach_workspace:
