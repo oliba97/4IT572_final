@@ -1,7 +1,7 @@
 vse: &vse
   docker:
     - image: circleci/node:8.11.3
-  ansible:
+ansible:
   docker: &ansible
     - image: 'circleci/python:latest'
       environment:
