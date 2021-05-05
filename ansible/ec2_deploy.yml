@@ -20,7 +20,7 @@
         assign_public_ip: yes
         wait: yes
         count: 1
-        group: homework
+        group: eshop
         aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY_ID') }}"
         aws_secret_key: "{{ lookup('env', 'AWS_SECRET_ACCESS_KEY') }}"
         security_token: "{{ lookup('env', 'AWS_SESSION_TOKEN') }}"
